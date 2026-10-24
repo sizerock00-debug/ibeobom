@@ -50,6 +50,12 @@ main{padding:22px clamp(14px,2.5vw,40px) 40px;max-width:1800px;margin:0 auto}.bo
 
 /* Match pinned notices to the same nine-column grid as regular posts. */
 .board table tbody tr.notice-row>td:nth-child(2){display:none}
+
+/* Accessible text-only header actions, consistently spaced at all sizes. */
+.topbar .header-text-btn{appearance:none;border:0;background:transparent;color:#303039;display:inline-flex;align-items:center;justify-content:center;min-width:48px;height:40px;padding:0 7px;font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:14px;font-weight:750;letter-spacing:-.25px;line-height:1;white-space:nowrap;flex-shrink:0;border-radius:8px}
+.topbar .header-text-btn:hover{background:#fff0f3;color:#e4496d}
+@media(max-width:900px){.topbar .header-text-btn{min-width:43px;padding:0 5px;font-size:13px}}
+@media(max-width:600px){.topbar .header-text-btn{min-width:0;padding:0 5px;height:34px;font-size:12px}.topbar .brand{max-width:none;flex:1 1 100%}.topbar .search{order:10}}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
@@ -60,9 +66,9 @@ main{padding:22px clamp(14px,2.5vw,40px) 40px;max-width:1800px;margin:0 auto}.bo
     <span class="tagline"><em>오늘 뭐 입지?</em> 함께 고르는 나만의 스타일 ✨</span>
   </a>
   <label class="search" aria-label="게시글 검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><input id="searchInput" placeholder="코디, 스타일, 옷 고민을 검색해보세요." autocomplete="off"></label>
-  <button class="icon-btn" id="noticeBtn" aria-label="알림" title="알림"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg></button>
-  <button class="icon-btn" id="mailBtn" aria-label="메시지" title="메시지"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></button>
-  <button class="icon-btn" id="profileBtn" aria-label="내 정보" title="내 정보"><span class="user-dot">나</span></button>
+  <button class="header-text-btn" id="noticeBtn" aria-label="알림" title="알림">알림</button>
+  <button class="header-text-btn" id="mailBtn" aria-label="쪽지" title="쪽지">쪽지</button>
+  <button class="header-text-btn" id="profileBtn" aria-label="내 정보" title="내 정보">내 정보</button>
   <button class="write-main" id="topWrite">글쓰기　＋</button>
 </header>
 <main id="top">
