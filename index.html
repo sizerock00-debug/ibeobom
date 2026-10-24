@@ -39,6 +39,11 @@ main{padding:22px clamp(14px,2.5vw,40px) 40px;max-width:1800px;margin:0 auto}.bo
 .topbar{padding-left:max(8px,calc((100vw - 1800px)/2 + clamp(14px,2.5vw,40px)));padding-right:max(8px,calc((100vw - 1800px)/2 + clamp(14px,2.5vw,40px)))}
 @media(max-width:900px){.topbar{padding-left:16px;padding-right:16px}}
 @media(max-width:600px){.topbar{padding-left:8px;padding-right:8px}}
+
+/* Category labels are redundant with post titles: hide column without changing JS cell indices. */
+.board table thead th:nth-child(2),.board table tbody tr:not(.notice-row)>td:nth-child(2){display:none}
+.board table .col-title{width:44%}
+@media(max-width:900px){.board table .col-title{width:41%}}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
@@ -59,7 +64,7 @@ main{padding:22px clamp(14px,2.5vw,40px) 40px;max-width:1800px;margin:0 auto}.bo
   <section class="board board-pink" data-board="consult">
     <div class="board-head"><div class="num">1</div><div class="board-title-wrap"><h1 class="board-title">코디 상담</h1><p class="board-sub">코디가 고민일 때, 스타일 파트너들에게 코디를 제안받아 보세요.</p></div><button class="board-write" data-write="consult">코디 상담 글쓰기　›</button></div>
     <div class="table-wrap"><table><thead><tr><th class="col-no">번호</th><th class="col-cat">분류</th><th class="col-img">사진</th><th class="col-title">제목</th><th class="col-author">작성자</th><th class="col-views">조회</th><th class="col-like">추천</th><th class="col-comments">댓글</th><th class="col-date">작성일</th></tr></thead><tbody id="consultRows">
-      <tr class="notice-row" data-search="공지 코디 상담 게시판 이용 안내"><td>공지</td><td colspan="2"><span class="notice-label">공지</span></td><td class="post-title">[필독] 코디 상담 게시판 이용 안내</td><td>운영자</td><td>1,245</td><td>32</td><td>0</td><td>10-20</td></tr>
+      <tr class="notice-row" data-search="공지 코디 상담 게시판 이용 안내"><td>공지</td><td><span class="notice-label">공지</span></td><td class="post-title">[필독] 코디 상담 게시판 이용 안내</td><td>운영자</td><td>1,245</td><td>32</td><td>0</td><td>10-20</td></tr>
       <tr data-post="1" data-search="하객룩 다음 주 결혼식 하객룩 조언 부탁드려요"><td>1234</td><td><span class="cat c-lav">하객룩</span></td><td><div class="thumbs"><span class="thumb">🧥</span><span class="thumb">👔</span></div></td><td class="post-title">다음 주 결혼식 하객룩 조언 부탁드려요!<span class="new">N</span><span class="count">+3</span></td><td>지은</td><td>215</td><td>6</td><td>12</td><td>10:24</td></tr>
       <tr data-post="2" data-search="데이트룩 첫 데이트 옷 어떤가요 더 나은 조합 있을까요"><td>1233</td><td><span class="cat c-pink">데이트룩</span></td><td><div class="thumbs"><span class="thumb">🧥</span><span class="thumb">👚</span></div></td><td class="post-title">첫 데이트 옷 어떤가요? 더 나은 조합 있을까요?<span class="new">N</span></td><td>민수</td><td>302</td><td>8</td><td>18</td><td>10:18</td></tr>
       <tr data-post="3" data-search="데일리룩 가을에 입기 좋은 데일리룩 추천해주세요"><td>1232</td><td><span class="cat c-blue">데일리룩</span></td><td><div class="thumbs"><span class="thumb">🧥</span><span class="thumb">👖</span></div></td><td class="post-title">가을에 입기 좋은 데일리룩 추천해주세요<span class="new">N</span></td><td>하늘</td><td>187</td><td>4</td><td>7</td><td>10:05</td></tr>
@@ -74,7 +79,7 @@ main{padding:22px clamp(14px,2.5vw,40px) 40px;max-width:1800px;margin:0 auto}.bo
   <section class="board board-blue" data-board="closet">
     <div class="board-head"><div class="num">2</div><div class="board-title-wrap"><h2 class="board-title">내 옷으로 코디하기</h2><p class="board-sub">가지고 있는 옷을 올리고, 새로운 조합을 받아보세요.</p></div><button class="board-write" data-write="closet">내 옷으로 코디하기 글쓰기　›</button></div>
     <div class="table-wrap"><table><thead><tr><th class="col-no">번호</th><th class="col-cat">분류</th><th class="col-img">사진</th><th class="col-title">제목</th><th class="col-author">작성자</th><th class="col-views">조회</th><th class="col-like">추천</th><th class="col-comments">댓글</th><th class="col-date">작성일</th></tr></thead><tbody id="closetRows">
-      <tr class="notice-row" data-search="공지 내 옷으로 코디하기 게시판 이용 안내"><td>공지</td><td colspan="2"><span class="notice-label">공지</span></td><td class="post-title">[필독] 내 옷으로 코디하기 게시판 이용 안내</td><td>운영자</td><td>987</td><td>28</td><td>0</td><td>10-19</td></tr>
+      <tr class="notice-row" data-search="공지 내 옷으로 코디하기 게시판 이용 안내"><td>공지</td><td><span class="notice-label">공지</span></td><td class="post-title">[필독] 내 옷으로 코디하기 게시판 이용 안내</td><td>운영자</td><td>987</td><td>28</td><td>0</td><td>10-19</td></tr>
       <tr data-post="10" data-search="상의 이 셔츠로 어떤 코디가 좋을까요"><td>5678</td><td><span class="cat c-blue">상의</span></td><td><div class="thumbs"><span class="thumb">👕</span><span class="thumb">👖</span></div></td><td class="post-title">이 셔츠로 어떤 코디가 좋을까요?<span class="new">N</span><span class="count">+5</span></td><td>지수</td><td>312</td><td>12</td><td>20</td><td>10:22</td></tr>
       <tr data-post="11" data-search="하의 이 바지로 3가지 코디 추천"><td>5677</td><td><span class="cat c-mint">하의</span></td><td><div class="thumbs"><span class="thumb">👖</span><span class="thumb">👚</span></div></td><td class="post-title">이 바지로 3가지 코디 추천 부탁드려요</td><td>민재</td><td>268</td><td>9</td><td>15</td><td>10:14</td></tr>
       <tr data-post="12" data-search="아우터 이 자켓 활용 코디 아이디어"><td>5676</td><td><span class="cat c-orange">아우터</span></td><td><div class="thumbs"><span class="thumb">🧥</span><span class="thumb">👖</span></div></td><td class="post-title">이 자켓 활용 코디 아이디어 주세요!</td><td>수빈</td><td>354</td><td>16</td><td>28</td><td>10:01</td></tr>
