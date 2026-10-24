@@ -22,6 +22,18 @@ main{padding:22px clamp(14px,2.5vw,40px) 40px;max-width:1800px;margin:0 auto}.bo
 
 @media(max-width:900px){.topbar{gap:12px;padding:0 16px}.tagline{display:none}.brand-name{font-size:25px}.search{max-width:none}.topbar .icon-btn:nth-of-type(2){display:none}main{padding:14px 12px 28px}.board-head{padding:13px 14px}.board-title{font-size:21px}.board-sub{font-size:12px}.num{width:42px;height:42px;font-size:23px}.col-img{width:8%}.col-title{width:32%}td{font-size:12px;padding:5px 6px}}
 @media(max-width:600px){.topbar{height:auto;min-height:68px;flex-wrap:wrap;padding:12px;gap:10px}.brand-mark{width:34px;height:34px;font-size:21px}.brand-name{font-size:24px}.search{order:5;flex-basis:100%;height:38px;margin:0;max-width:none}.icon-btn{width:28px}.user-dot{width:28px;height:28px}.write-main{padding:10px 13px;font-size:12px}main{padding:12px 8px 24px}.board{margin-bottom:15px;border-radius:10px}.board-head{gap:10px;min-height:72px;padding:12px 10px}.num{width:36px;height:36px;font-size:20px}.board-title{font-size:18px}.board-sub{font-size:11px;line-height:1.45}.board-write{font-size:11px;padding:10px 9px;border-radius:7px}.table-wrap{overflow-x:auto}table{min-width:790px}td{height:37px}.footer-note{font-size:10px}.modal-head{padding:16px}.modal-body{padding:17px}.modal-head h2{font-size:18px}}
+
+/* Responsive, size-constrained site identity */
+.topbar{gap:clamp(10px,1.5vw,24px)}
+.brand{flex:0 1 auto;min-width:0;max-width:min(100%,540px);gap:9px}
+.brand-mark{flex:0 0 40px}
+.brand-name{font-size:clamp(18px,1.75vw,25px);letter-spacing:-1.1px;line-height:1.15;white-space:nowrap}
+.tagline{font-size:11px;min-width:0;white-space:normal;line-height:1.35;max-width:155px}
+.search{min-width:130px}
+@media(max-width:1200px){.tagline{display:none}.brand{max-width:none}}
+@media(max-width:900px){.brand-name{font-size:clamp(17px,2.6vw,23px)}.topbar{gap:10px}.search{min-width:90px}}
+@media(max-width:600px){.brand{flex:1 1 auto;max-width:calc(100% - 135px);gap:7px}.brand-mark{flex-basis:32px;width:32px;height:32px;font-size:19px}.brand-name{font-size:clamp(16px,4vw,21px);letter-spacing:-.8px}.topbar{gap:8px}.search{flex:1 0 100%;min-width:0}}
+@media(max-width:380px){.brand{max-width:calc(100% - 120px)}.brand-name{font-size:15px}.write-main{padding:9px 10px}}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
